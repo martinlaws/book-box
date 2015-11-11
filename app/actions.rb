@@ -10,6 +10,17 @@ get '/login'
   erb :'/users/login'
 end
 
+post '/login' do
+  if @user = User.find_by_username(params[:username]).try(:authenticate, params[:password])
+    puts "i have a user, id: #{@user.id}"
+    session[:id] = @user.id
+    redirect "/"
+  else
+    @error = "Wrong email/password"
+    erb :'login'
+  end
+end
+
 helpers do
   def current_user
     if session[:id] && user = User.find(session[:id])
@@ -17,6 +28,10 @@ helpers do
     end
   end # ends current_user helper method
 end # ends helpers
+
+get '/signup' do
+  erb :'/users/signup'
+end
 
 post '/signup' do
   @user = User.new(
