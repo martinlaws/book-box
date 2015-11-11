@@ -1,5 +1,13 @@
 get '/' do
-  erb :index
+  if @user = current_user
+    redirect '/posts'
+  else
+    redirect '/login'
+  end
+end
+
+get '/login'
+  erb :'/users/login'
 end
 
 helpers do
