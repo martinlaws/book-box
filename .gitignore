@@ -1,4 +1,5 @@
 *~
 *.swp
 *.swo
-/config/database.rb
+config*
+
