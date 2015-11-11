@@ -1,3 +1,11 @@
+helpers do
+  def current_user
+    if session[:id] && user = User.find(session[:id])
+      user
+    end
+  end
+end
+
 get '/' do
   if @user = current_user
     redirect '/posts'
@@ -6,17 +14,10 @@ get '/' do
   end
 end
 
-get '/login'
+get '/login' do
   erb :'/users/login'
 end
 
-helpers do
-  def current_user
-    if session[:id] && user = User.find(session[:id])
-      user
-    end
-  end # ends current_user helper method
-end # ends helpers
 
 post '/signup' do
   @user = User.new(
