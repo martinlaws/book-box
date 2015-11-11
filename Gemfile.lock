@@ -77,10 +77,8 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-<<<<<<< HEAD
 =======
   bcrypt (~> 3.1.7)
->>>>>>> master
   pry
   puma
   rake
