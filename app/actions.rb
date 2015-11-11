@@ -3,18 +3,14 @@ get '/' do
 end
 
 helpers do
-
   def current_user
-
-    if session[:id] and user = User.find(session[:id])
+    if session[:id] && user = User.find(session[:id])
       user
     end
-
-  end
-end
+  end # ends current_user helper method
+end # ends helpers
 
 post '/signup' do
-
   @user = User.new(
     email: params[:email],
     password: params[:password],
@@ -24,12 +20,8 @@ post '/signup' do
   )
 
   if user.save
-
     redirect '/trade_wall'
-
   else
-
-    erb:index
-
+    erb :index
   end
 end
