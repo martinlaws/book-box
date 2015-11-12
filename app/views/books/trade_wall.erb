@@ -1,0 +1,18 @@
+<div class="row">
+  <h1 class="header-box">
+    <center>Here's what's available near you:</center>
+  </h1>
+</div>
+
+<% @books.each do |book| %>
+  <div class="row">
+    <div class="six columns">
+      <h4><%= book.title %></h4>
+      <p>by: <%= book.author %></p>
+      </br>
+      <p><%= book.genre %></p>
+      <p><%= book.user.last_name %><%= book.user.first_name %></p>
+      <p>LOCATION</p>
+    </div>
+  </div>
+<% end %>
