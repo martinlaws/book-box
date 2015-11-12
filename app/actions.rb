@@ -49,6 +49,22 @@ get '/book/new' do
   erb :'books/new'
 end
 
+get '/trade' do
+  erb:'book/trade'
+end
+
+post 'trade/new:id' do
+
+  @book = Book.find params[:id]
+
+  @trade = Trade.new(
+    book_id: @book.id,
+    posting_user: @book.user_id,
+    receiving_user: current_user.id,  
+  )
+
+end
+
 post '/book/new' do
 
   @book = Book.new(
