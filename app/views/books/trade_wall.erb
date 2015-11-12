@@ -17,6 +17,10 @@
       <p><%= book.user.first_name %><%= book.user.location %></p>
       <p>LOCATION</p>
     </div>
+    <form method="post" action="/trade/new<%= book.id %>">
+      <input class="button-primary" type="submit" value="Make Trade">
+      </form>
+
   <% end %>
 
   </div>

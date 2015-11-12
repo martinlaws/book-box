@@ -49,19 +49,31 @@ get '/book/new' do
   erb :'books/new'
 end
 
-get '/trade' do
-  erb:'book/trade'
+get '/trade/:id' do
+  @book = Book.find(params[:id])
+  erb:'/trades/trade_new'
 end
 
-post 'trade/new:id' do
+get '/trade/new:id' do
+  @book = Book.find(params[:id])
+  erb:'/trade/trade_new'
+end
 
-  @book = Book.find params[:id]
+post '/trade/new:id' do
+
+  @book = Book.find(params[:id])
 
   @trade = Trade.new(
     book_id: @book.id,
     posting_user: @book.user_id,
     receiving_user: current_user.id,  
   )
+
+  if @trade.save
+    redirect '/trade_wall'
+  else
+    erb :index
+  end
 
 end
 
