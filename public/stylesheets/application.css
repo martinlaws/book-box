@@ -1,4 +1,8 @@
-#header-box {
-  padding: 2em;
-  margin-top: 1em;
+.header-logout {
+  margin: 1.5em;
+}
+
+.header-box {
+  margin: 0.5em;
+  padding: 1em;
 }

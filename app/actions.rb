@@ -7,24 +7,24 @@ helpers do
   end
 end
 
-get '/' do
-
-  if @user = current_user
-    redirect '/trade_wall'
-  else
-    redirect '/login'
-  end
-
+get '/logout' do
+  session.clear
+  redirect "/login"
 end
 
 get '/login' do
   erb :'users/login'
 end
 
+get '/trade_wall' do
+  erb :'users/trade_wall'
+end
+
 post '/login' do
 
   if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
     session[:id] = @user.id
+
     redirect "/trade_wall"
 
   else
@@ -35,6 +35,15 @@ post '/login' do
   end
 end
 
+get '/' do
+
+  if @user = current_user
+    redirect '/trade_wall'
+  else
+    redirect '/login'
+  end
+
+end
 
 get '/signup' do
   erb :'users/signup'
