@@ -12,4 +12,9 @@ $(document).ready(function() {
       $(".longitude").val(position.coords.longitude);
     }
   });
-})
+
+  $(".trade-button").click(function() {
+    $(this).hide();
+    return false;
+  });
+});
