@@ -5,9 +5,10 @@
       <center>Welcome to BookBox!</center>
     </h1>
   </div>
-  <% if @error %>
-    <h4><%= @error.to_s %></h3>
-  <% end %>
+
+<!-- this only works after the 2nd incorrect login -->
+<%= @flash %>
+
   <form action="/login" method="post">
     <div class="row">
       <div class="twelve columns">

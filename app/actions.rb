@@ -1,4 +1,5 @@
 require 'pry'
+
 helpers do
 
   def current_user
@@ -73,7 +74,7 @@ post '/login' do
     session[:id] = @user.id
     redirect "/trade_wall"
   else
-    @error = "Wrong email/password"
+    session[:flash] = "Wrong email/password"
     erb :'users/login'
   end
 
@@ -92,7 +93,7 @@ post '/signup' do
 
   if @user.save
     session[:id] = @user.id
-    session[:flash] = "Welcome!"
+    session[:flash] = "Welcome, #{@user.first_name}!"
     redirect 'trade_wall'
   else
     erb :index
