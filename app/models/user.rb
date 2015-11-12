@@ -6,10 +6,20 @@ class User < ActiveRecord::Base
 
   has_many :trades
 
-  #has_many :open_trades, class_name:'Trade', foreign_key: :posting_user_id
+  validates :first_name, :last_name, :email, :password, presence: true
 
-  #has_many :completed_trades, class_name:'Trade', foreign_key: :receiving_user_id
+  validates :email, uniqueness: true
 
-  #has_many :posted_books, class_name:'Book', foreign_key: :user_id
+  def get_trades
+    posting_trades + receiving_trades
+  end
+
+  def posting_trades
+    Trade.where(posting_user: id)
+  end
+
+  def receiving_trades
+    Trade.where(receiving_user: id)
+  end
 
 end
