@@ -1,9 +1,2 @@
 *~
 *.swp
-*.swo
-
-database.rb
-environment.rb
-
-
-/config/database.rb
