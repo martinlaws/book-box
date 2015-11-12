@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
 
-  belongs_to :posting_user, class_name:'User'
+  has_many :trades
+  belongs_to :user
 
 end
