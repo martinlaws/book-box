@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
     location
   end
 
+  def location
+    "#{latitude}, #{longitude}"
+  end
+
 end
