@@ -12,20 +12,15 @@ get '/login' do
 end
 
 post '/login' do
-<<<<<<< HEAD
 
   if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
-
-=======
-  if @user = User.find_by_username(params[:username]).try(:authenticate, params[:password])
->>>>>>> master
     session[:id] = @user.id
     redirect "/trade_wall"
 
   else
 
     @error = "Wrong email/password"
-    erb :'login'
+    erb :'users/login'
 
   end
 end
@@ -52,7 +47,7 @@ post '/signup' do
     password: params[:password],
     first_name: params[:first_name],
     last_name: params[:last_name],
-    location: params[:location]
+    #location: params[:location]
 
   )
 
