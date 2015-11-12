@@ -19,3 +19,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.getLocation {
+  margin-left: 10px;
+}
