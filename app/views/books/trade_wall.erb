@@ -11,10 +11,11 @@
       <p>by: <%= book.author %></p>
       </br>
       <p><%= book.genre %></p>
-      <p><%= book.user_id %><%= User.find(book.user_id).location %></p>
+      <p><%= book.user.first_name %><%= book.user.location %></p>
       <p>LOCATION</p>
     </div>
   </div>
+
 <% end %>
 
 <center><a class="button" href="/book/new">Post a new book</a></center>

@@ -46,6 +46,7 @@ get '/trade_wall' do
 end
 
 get '/book/new' do
+  binding.pry
   erb :'books/new'
 end
 
@@ -55,7 +56,7 @@ post '/book/new' do
     title: params[:title],
     author: params[:author],
     genre: params[:genre],
-    user_id: current_user.id,
+    user_id: current_user.id
   )
 
   if @book.save
