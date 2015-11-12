@@ -119,3 +119,13 @@ post '/signup' do
   end
 
 end
+
+get '/bookshelf:id' do
+  erb :'users/bookshelf'
+end
+
+get '/book/:id' do
+  @book = Book.find(params[:id])
+  @book.destroy
+  redirect "/bookshelf#{current_user.id}"
+end

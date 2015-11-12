@@ -1,0 +1,30 @@
+<!--
+Your NAME
+Your books
+Your .get_trades
+    -->
+
+<div class="row">
+  <h1 class="header-box">
+    <center>Hello, <%= current_user.first_name %>!</center>
+  </h1>
+</div>
+
+<div class="container">
+  <div class="flex-container">
+
+    <% current_user.books.each do |book| %>
+        <div class="four columns book-tile">
+          <h4><%= book.title %></h4>
+          <p>by: <%= book.author %></p>
+          </br>
+          <p><%= book.genre %></p>
+          <p><%= book.user.first_name %></p>
+          <p><%= User.find(book.user_id).location %></p>
+        </br>
+        <a class="button" href='/book/<%= book.id %>'>Delete</a>
+        </div>
+    <% end %>
+
+  </div>
+</div>
