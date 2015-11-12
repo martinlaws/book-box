@@ -12,9 +12,13 @@ get '/login' do
 end
 
 post '/login' do
+<<<<<<< HEAD
 
   if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
 
+=======
+  if @user = User.find_by_username(params[:username]).try(:authenticate, params[:password])
+>>>>>>> master
     session[:id] = @user.id
     redirect "/trade_wall"
 
