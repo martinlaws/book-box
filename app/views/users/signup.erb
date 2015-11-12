@@ -1,25 +1,29 @@
 <div class="container">
-  <form method="POST" action="/signup">
+
+  <div class="row" id="header-box">
+    <h1>
+      <center>Sign up! You're going to
+        <strong>love</strong>
+        this.</center>
+    </h1>
+  </div>
+  <form action="/signup" method="POST">
     <div class="row">
       <div class="six columns">
-        <label for="first_name">First Name</label>
-        <input name="first_name" class="u-full-width" placeholder="Anne" type="text" value="">
+        <input class="u-full-width" name="first_name" placeholder="First Name" type="text">
       </div>
       <div class="six columns">
-        <label for="last_name">Last Name</label>
-        <input name="last_name" class="u-full-width" placeholder="Hathaway" type="text" value="">
+        <input class="u-full-width" name="last_name" placeholder="Last Name" type="text">
       </div>
     </div>
     <div class="row">
       <div class="six columns">
-        <label for="email">Email</label>
-        <input name="email" class="u-full-width" placeholder="thedevilwearsparada@hotmail.com" type="email" value="">
+        <input class="u-full-width" name="email" placeholder="email@email.com" type="email">
       </div>
       <div class="six columns">
-        <label for="password">Password</label>
-        <input class="u-full-width" placeholder="password" type="password" name="password" value="">
+        <input class="u-full-width" name="password" placeholder="password" type="password">
       </div>
     </div>
-    <input class="button-primary" type="submit" value="submit input">
+    <center><input class="button-primary" type="submit" value="submit input"></center>
   </form>
 </div>
