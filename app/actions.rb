@@ -7,6 +7,16 @@ helpers do
   end
 end
 
+get '/' do
+
+  if @user = current_user
+    redirect '/trade_wall'
+  else
+    redirect '/login'
+  end
+
+end
+
 get '/login' do
   erb :'users/login'
 end
@@ -25,15 +35,6 @@ post '/login' do
   end
 end
 
-get '/' do
-
-  if @user = current_user
-    redirect '/trade_wall'
-  else
-    redirect '/login'
-  end
-
-end
 
 get '/signup' do
   erb :'users/signup'
