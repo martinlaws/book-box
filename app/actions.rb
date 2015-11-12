@@ -16,10 +16,15 @@ get '/login' do
   erb :'users/login'
 end
 
+get '/trade_wall' do
+  erb :'users/trade_wall'
+end
+
 post '/login' do
 
   if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
     session[:id] = @user.id
+
     redirect "/trade_wall"
 
   else
