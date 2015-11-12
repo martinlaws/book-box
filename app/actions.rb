@@ -20,7 +20,6 @@ end
 
 post '/login' do
   if @user = User.find_by_username(params[:username]).try(:authenticate, params[:password])
-    puts "i have a user, id: #{@user.id}"
     session[:id] = @user.id
     redirect "/"
   else
