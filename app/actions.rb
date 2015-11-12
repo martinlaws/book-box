@@ -46,7 +46,6 @@ get '/trade_wall' do
 end
 
 get '/book/new' do
-  binding.pry
   erb :'books/new'
 end
 
