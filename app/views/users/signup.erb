@@ -2,22 +2,22 @@
   <form method="POST" action="/signup">
     <div class="row">
       <div class="six columns">
-        <label for="firstname">First Name</label>
-        <input class="u-full-width" placeholder="Anne" type="text" value="<%= @user.first_name %>">
+        <label for="first_name">First Name</label>
+        <input name="first_name" class="u-full-width" placeholder="Anne" type="text" value="">
       </div>
       <div class="six columns">
-        <label for="lastname">Last Name</label>
-        <input class="u-full-width" placeholder="Hathaway" type="text" value="<%= @user.last_name %>">
+        <label for="last_name">Last Name</label>
+        <input name="last_name" class="u-full-width" placeholder="Hathaway" type="text" value="">
       </div>
     </div>
     <div class="row">
       <div class="six columns">
         <label for="email">Email</label>
-        <input class="u-full-width" placeholder="thedevilwearsparada@hotmail.com" type="email" value="<%= @user.email %>">
+        <input name="email" class="u-full-width" placeholder="thedevilwearsparada@hotmail.com" type="email" value="">
       </div>
       <div class="six columns">
         <label for="password">Password</label>
-        <input class="u-full-width" placeholder="password" type="pasword" value="<%= @user.last_name %>">
+        <input class="u-full-width" placeholder="password" type="password" name="password" value="">
       </div>
     </div>
     <input class="button-primary" type="submit" value="submit input">

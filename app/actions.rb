@@ -1,4 +1,5 @@
 helpers do
+
   def current_user
     if session[:id] && user = User.find(session[:id])
       user
@@ -6,35 +7,41 @@ helpers do
   end
 end
 
-get '/' do
-  if @user = current_user
-    redirect '/posts'
-  else
-    redirect '/login'
-  end
-end
-
 get '/login' do
-  erb :'/users/login'
+  erb :'users/login'
 end
 
 post '/login' do
-  if @user = User.find_by_username(params[:username]).try(:authenticate, params[:password])
-    puts "i have a user, id: #{@user.id}"
+
+  if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
+
     session[:id] = @user.id
-    redirect "/"
+    redirect "/trade_wall"
+
   else
+
     @error = "Wrong email/password"
     erb :'login'
+
   end
 end
 
+get '/' do
+
+  if @user = current_user
+    redirect '/trade_wall'
+  else
+    redirect '/login'
+  end
+
+end
 
 get '/signup' do
-  erb :'/users/signup'
+  erb :'users/signup'
 end
 
 post '/signup' do
+
   @user = User.new(
 
     email: params[:email],
@@ -45,7 +52,7 @@ post '/signup' do
 
   )
 
-  if user.save
+  if @user.save
     redirect '/trade_wall'
   else
     erb :index
