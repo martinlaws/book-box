@@ -39,7 +39,7 @@ get '/logout' do
 
 end
 
-get 'user/trade_wall' do
+get '/trade_wall' do
   @books = Book.all
 
   erb :'books/trade_wall'
@@ -91,7 +91,7 @@ post '/signup' do
   if @user.save
     session[:id] = @user.id
     session[:flash] = "Welcome!"
-    redirect '/trade_wall'
+    redirect 'trade_wall'
   else
     erb :index
   end
