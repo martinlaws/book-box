@@ -19,7 +19,7 @@
         <p><%= User.find(book.user_id).location %></p>
 
         <form method="post" action="/trade/new<%= book.id %>">
-          <input class="button" type="submit" value="Trade">
+          <input class="button trade-button" type="submit" value="Trade">
         </form>
       </div>
     <% end %>
