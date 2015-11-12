@@ -1,4 +1,15 @@
 $(document).ready(function() {
+  $(".getLocation").click(function() {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else {
+      console.log ("Not supported");
+    }
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+    function showPosition(position) {
+      $(".latitude").val(position.coords.latitude);
+      $(".longitude").val(position.coords.longitude);
+    }
+  });
+})

@@ -104,7 +104,8 @@ post '/signup' do
     password: params[:password],
     first_name: params[:first_name],
     last_name: params[:last_name],
-    #location: params[:location]
+    latitude: params[:latitude],
+    longitude: params[:longitude]
   )
 
   if @user.save

@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
     Trade.where(receiving_user: id)
   end
 
+  def get_location
+    location = cookies[:lat_lng].split("|")
+    location
+  end
+
 end
