@@ -1,4 +1,3 @@
-require 'pry'
 helpers do
 
   def current_user
@@ -47,11 +46,6 @@ end
 
 get '/book/new' do
   erb :'books/new'
-end
-
-get '/trade/new:id' do
-  @book = Book.find(params[:id])
-  erb :'trades/trade_new'
 end
 
 post '/trade/new:id' do
