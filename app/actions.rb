@@ -45,18 +45,20 @@ get '/trade_wall' do
   erb :'books/trade_wall'
 end
 
-post 'books/new' do
+get '/book/new' do
+  erb :'books/new'
+end
+
+post '/book/new' do
 
   @book = Book.new(
     title: params[:title],
     author: params[:author],
     genre: params[:genre],
-    #location: params[:location]
+    user_id: current_user.id,
   )
 
-  if @user.save
-    session[:id] = @user.id
-    session[:flash] = "Welcome!"
+  if @book.save
     redirect '/trade_wall'
   else
     erb :index

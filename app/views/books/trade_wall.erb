@@ -11,7 +11,7 @@
       <p>by: <%= book.author %></p>
       </br>
       <p><%= book.genre %></p>
-      <p><%= book.user.last_name %><%= book.user.first_name %></p>
+      <p><%= book.user_id %><%= User.find(book.user_id).location %></p>
       <p>LOCATION</p>
     </div>
   </div>
