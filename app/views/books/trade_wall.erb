@@ -8,9 +8,9 @@
 <div class="container">
   <div class="flex-container">
 
-  <% @books.select do |book| %>
-    <div class="four columns book-tile">
+  <% @books.each do |book| %>
     <% if book.not_owned_by_current_user?(current_user) %>
+      <div class="four columns book-tile">
         <h4><%= book.title %></h4>
         <p>by: <%= book.author %></p>
         </br>
