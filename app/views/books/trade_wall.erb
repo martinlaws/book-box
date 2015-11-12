@@ -1,5 +1,6 @@
 <div class="row">
   <h1 class="header-box">
+
     <center>Here's what's available near you:</center>
   </h1>
 </div>
@@ -8,19 +9,21 @@
   <div class="flex-container">
 
   <% @books.each do |book| %>
-    <div class="four columns book-tile">
-      <h4><%= book.title %></h4>
-      <p>by: <%= book.author %></p>
-      </br>
-      <p><%= book.genre %></p>
-      <!-- <p><%= User.find(book.user_id).location %></p> -->
-      <p><%= book.user.first_name %><%= book.user.location %></p>
-      <p>LOCATION</p>
+    <% if book.not_owned_by_current_user?(current_user) %>
+      <div class="four columns book-tile">
+        <h4><%= book.title %></h4>
+        <p>by: <%= book.author %></p>
+        </br>
+        <p><%= book.genre %></p>
+        <!-- <p><%= User.find(book.user_id).location %></p> -->
+        <p><%= book.user.first_name %><%= book.user.location %></p>
+        <p>LOCATION</p>
 
-      <form method="post" action="/trade/new<%= book.id %>">
-        <input class="button" type="submit" value="Trade">
-      </form>
-    </div>
+        <form method="post" action="/trade/new<%= book.id %>">
+          <input class="button" type="submit" value="Trade">
+        </form>
+      </div>
+    <% end %>
   <% end %>
 
   </div>
