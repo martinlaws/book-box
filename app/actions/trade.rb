@@ -22,7 +22,6 @@ post '/trade/new:id' do
   end
 
 end
-<<<<<<< HEAD
 
 post '/accept_trade:id' do
   @trade = Trade.find(params[:id])
@@ -45,7 +44,3 @@ post '/decline_trade:id' do
 
   erb :'users/bookshelf'
 end
-
-
-=======
->>>>>>> master

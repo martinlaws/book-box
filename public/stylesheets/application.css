@@ -26,3 +26,7 @@
 .getLocation {
   margin-left: 10px;
 }
+
+.no-border {
+  border: none;
+}
