@@ -9,6 +9,7 @@
 
   <% @books.each do |book| %>
       <div class="four columns book-tile">
+
         <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
         <p>by: <%= book.author %></p>
         </br>
