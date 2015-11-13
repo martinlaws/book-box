@@ -1,3 +1,13 @@
+get '/' do
+
+  if @user = current_user
+    redirect '/trade_wall'
+  else
+    redirect '/login'
+  end
+
+end
+
 get '/login' do
   erb :'users/login'
 end
@@ -14,8 +24,9 @@ get '/logout' do
 end
 
 post '/login' do
+  @user = User.find_by(email: params[:email])
 
-  if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
+  if @user && @user.authenticate(params[:password])
     session[:id] = @user.id
     redirect "/trade_wall"
   else
@@ -46,13 +57,3 @@ post '/signup' do
   end
 
 end
-get '/' do
-
-  if @user = current_user
-    redirect '/trade_wall'
-  else
-    redirect '/login'
-  end
-
-end
-
