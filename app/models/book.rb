@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
 
   def not_owned_by_current_user?(current_user)
-    user_id != current_user.id 
+    user_id != current_user.id
   end
 
   def make_available

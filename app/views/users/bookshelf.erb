@@ -16,7 +16,9 @@
         <p><%= User.find(book.user_id).location %></p>
         </br>
         <form method="POST" action="/book/<%= book.id %>/remove">
-          <input class="button trade-button" type="submit" value="Make Unavailable">
+          <center>
+            <input class="button trade-button" type="submit" value="Make Unavailable">
+          </center>
         </form>
       </div>
     <% end %>
