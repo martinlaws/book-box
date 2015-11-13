@@ -124,7 +124,7 @@ get '/bookshelf:id' do
   erb :'users/bookshelf'
 end
 
-get '/book/:id' do
+get '/book/:id/remove' do
   @book = Book.find(params[:id])
   @book.remove
   redirect "/bookshelf#{current_user.id}"

@@ -20,7 +20,7 @@ Your .get_trades
         <p><%= book.user.first_name %></p>
         <p><%= User.find(book.user_id).location %></p>
         </br>
-        <a class="button" href='/book/<%= book.id %>'>Delete</a>
+        <a class="button" href='/book/<%= book.id %>/remove'>Delete</a>
       </div>
     <% end %>
   </div>
