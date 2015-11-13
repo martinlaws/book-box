@@ -128,5 +128,6 @@ post '/book/:id/remove' do
   @book = Book.find(params[:id])
   @book.remove
   @book.save
+binding.pry
   redirect "/bookshelf#{current_user.id}"
 end
