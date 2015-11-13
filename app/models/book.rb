@@ -10,11 +10,11 @@ class Book < ActiveRecord::Base
   end
 
   def available
-    book.availability = true
+   availability = true
   end
 
   def remove
-    book.availability = false
+   availability = false
   end
 
 end
