@@ -9,7 +9,7 @@
 
     <% if @books %>
       <% @books.sort_by { |book| current_user.distance(book.user).to_kilometers }.each do |book| %>
-        <% if book.availability == true %>
+        <% if book.available? %>
           <div class="four columns book-tile">
 
             <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
