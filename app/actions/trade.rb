@@ -23,7 +23,7 @@ post '/trade/new:id' do
 
 end
 
-post '/accept_trade:id' do
+put '/accept_trade:id' do
   @trade = Trade.find(params[:id])
   @book = Book.find(@trade.book_id)
 
@@ -35,7 +35,7 @@ post '/accept_trade:id' do
   erb :'users/bookshelf'
 end
 
-post '/decline_trade:id' do
+put '/decline_trade:id' do
   @trade = Trade.find(params[:id])
   @book = Book.find(@trade.book_id)
   @book.availability = true
