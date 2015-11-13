@@ -16,11 +16,11 @@
         <p><%= User.find(book.user_id).location %></p>
         </br>
         <%if book.availability == true %>
-        <form method="post" action="/book/<%= book.id %>/remove">
+        <form method="post" action="/book<%= book.id %>/remove">
           <td><button type="hidden" name="_method" value="put">Make Unavailable</button</td>
         </form>
         <% else %>
-        <form method="post" action="/book/<%= book.id %>/repost">
+        <form method="post" action="/book<%= book.id %>/repost">
           <td><button type="hidden" name="_method" value="put">Repost</button</td>
         </form>
           </center>
