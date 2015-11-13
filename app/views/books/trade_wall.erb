@@ -8,20 +8,18 @@
   <div class="flex-container">
 
   <% @books.each do |book| %>
-    <% if book.not_owned_by_current_user?(current_user) %>
       <div class="four columns book-tile">
         <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
         <p>by: <%= book.author %></p>
         </br>
         <p><%= book.genre %></p>
         <p><%= book.user.first_name %></p>
-        <p><%= User.find(book.user_id).location %></p>
+        <p><%= book.user.location %></p>
 
         <form method="post" action="/trade/new<%= book.id %>">
           <input class="button trade-button" type="submit" value="Trade">
         </form>
       </div>
-    <% end %>
   <% end %>
 
   </div>

@@ -1,5 +1,5 @@
 get '/trade_wall' do
-  @books = Book.all
+  @books = Book.where('user_id != ?', session[:id]).includes(:user)
 
   erb :'books/trade_wall'
 end
@@ -22,4 +22,3 @@ post '/trade/new:id' do
   end
 
 end
-
