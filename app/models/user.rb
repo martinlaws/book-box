@@ -31,4 +31,13 @@ class User < ActiveRecord::Base
     "#{latitude}, #{longitude}"
   end
 
+  def acceptable_range
+    5
+  end
+
+  def within_range?(other_user)
+    distance = Haversine.distance(other_user.latitude, other_user.longitude, latitude, longitude)
+    distance.to_km <= acceptable_range  
+  end
+
 end
