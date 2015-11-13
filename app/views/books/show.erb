@@ -28,9 +28,10 @@
       <tbody>
         <% @book.trades.each do |trade| %>
           <td>Location</td>
-          <td><%= trade.created_at.month %></td>
+          <td><%= trade.created_at.httpdate %></td>
+          <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
           <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
-        </tr> -->
+        </tr>
         <% end %>
       </tbody>
     </table>
