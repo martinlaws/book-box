@@ -25,3 +25,8 @@ post '/book/new' do
   end
 
 end
+
+get '/book/:title' do
+  @book = Book.find_by(title: params[:title])
+  erb :'books/show'
+end
