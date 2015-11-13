@@ -7,7 +7,7 @@
 <div class="container">
   <div class="flex-container">
 
-    <% if @books %>
+    <% if !@books.empty? %>
       <% @books.sort_by { |book| current_user.distance(book.user).to_kilometers }.each do |book| %>
         <% if book.available? %>
           <div class="four columns book-tile">
@@ -25,7 +25,7 @@
           </div>
         <% end %>
       <% end %>
-    <% else %>
+    <% binding.pry else %>
 
       <h4>Sorry, there are no books available. Why don't you take the lead and <a href='/book/new'>add a new book</a>?</h4>
 
