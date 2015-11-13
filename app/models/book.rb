@@ -9,8 +9,8 @@ class Book < ActiveRecord::Base
     user_id != current_user.id 
   end
 
-  def available?
-   availability == true
+  def make_available
+    self.availability = true
   end
 
   def remove
