@@ -1,6 +1,8 @@
 require 'rake'
 require "sinatra/activerecord/rake"
 require ::File.expand_path('../config/environment', __FILE__)
+require './lib/users_importer'
+require './lib/books_importer'
 
 Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear
@@ -47,6 +49,12 @@ task 'db:create_migration' do
   MIGRATION
 
   puts path
+end
+
+desc 'populate the test database with data'
+task 'db:populate' do
+  UsersImporter.new.import
+  # BooksImporter.new.import
 end
 
 desc 'Retrieves the current schema version number'
