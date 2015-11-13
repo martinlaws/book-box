@@ -29,3 +29,8 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+# Action files
+Dir.glob(File.join(APP_ROOT, 'app', 'actions', '**', '*')).each do |file|
+    require file
+end
