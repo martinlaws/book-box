@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="six columns book-tile">
+    <h4>Title: <%= @book.title %></h4>
+    <p>Author: <%= @book.author %></p>
+    </br>
+    <p>Genre: <%= @book.genre %></p>
+    <p>Poster: <%= @book.user.first_name %></p>
+    <p>You can find <%= @book.user.first_name %> at: <%= User.find(@book.user_id).location %></p>
+    </br>
+  </div>
+</div>
+
+<div class="container">
+</br>
+  <div class="row">
+    <h5 class="docs-header">
+      <center>Trade History for <%= @book.title %></center>
+    </h5>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>Poster</th>
+          <th>Bidder</th>
+          <th>Location</th>
+          <th>Yea</th>
+          <th>Neigh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.posting_trades.each do |trade| %>
+        <tr>
+          <td><%= Book.find(trade.book_id).title %></td>
+          <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
+          <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
+          <td>Location</td>
+          <td><a href="/"><i class="material-icons md-18">thumb_up</i></a></td>
+          <td><a href="/"><i class="material-icons md-18">thumb_down</i></a></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
