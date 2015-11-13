@@ -18,7 +18,7 @@ post '/trade/new:id' do
   if @trade.save
     redirect '/trade_wall'
   else
-    erb :index
+    erb :'books/trade_wall'
   end
 
 end
