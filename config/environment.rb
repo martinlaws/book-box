@@ -14,6 +14,9 @@ require 'haversine'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 
+#REST
+use Rack::MethodOverride
+
 # Sinatra configuration
 configure do
   set :root, APP_ROOT.to_path

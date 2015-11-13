@@ -45,10 +45,10 @@
         <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
         <td><%= User.find(trade.posting_user).location %></td>
         <form method="post" action="/accept_trade<%= trade.id %>">
-          <td><button type="submit" class="no-border"><i class="material-icons md-18">thumb_up</i></button</td>
+          <td><button type="hidden" name="_method" value="put" class="no-border"><i class="material-icons md-18">thumb_up</i></button</td>
         </form>
         <form method="post" action="/decline_trade<%= trade.id %>">
-          <td><button type="submit" class="no-border"><i class="material-icons md-18">thumb_down</i></button</td>
+          <td><button type="hidden" name="_method" value="put" class="no-border"><i class="material-icons md-18">thumb_down</i></button</td>
         </form>
       </tr>
       <% end %>
