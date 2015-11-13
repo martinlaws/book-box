@@ -1,8 +1,3 @@
-<!--
-Your NAME
-Your books
-Your .get_trades
-    -->
 <div class="row">
   <h2 class="header-box">
     <center style="margin-top: 0.5em;"><%= current_user.first_name %>'s Books:</center>
@@ -41,17 +36,20 @@ Your .get_trades
       </tr>
     </thead>
     <tbody>
-      <% current_user.posting_trades.each do |trade| %>
+      <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
       <tr>
         <td><%= Book.find(trade.book_id).title %></td>
         <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
         <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
-        <td>Location</td>
-        <td><a href="/"><i class="material-icons md-18">thumb_up</i></a></td>
-        <td><a href="/"><i class="material-icons md-18">thumb_down</i></a></td>
+        <td><%= User.find(trade.posting_user).location %></td>
+        <form method="post" action="/accept_trade<%= trade.id %>">
+          <td><button type="submit" class="no-border"><i class="material-icons md-18">thumb_up</i></button</td>
+        </form>
+        <form method="post" action="/decline_trade<%= trade.id %>">
+          <td><button type="submit" class="no-border"><i class="material-icons md-18">thumb_down</i></button</td>
+        </form>
       </tr>
       <% end %>
     </tbody>
   </table>
-
 </div>

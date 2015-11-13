@@ -1,5 +1,5 @@
 get '/trade_wall' do
-  @books = Book.all
+  @books = Book.where('user_id != ?', session[:id]).includes(:user)
 
   erb :'books/trade_wall'
 end
@@ -23,3 +23,24 @@ post '/trade/new:id' do
 
 end
 
+post '/accept_trade:id' do
+  @trade = Trade.find(params[:id])
+  @book = Book.find(@trade.book_id)
+
+  @trade.status = "completed"
+  @book.user_id = @trade.receiving_user
+  @book.save
+  @trade.save
+
+  erb :'users/bookshelf'
+end
+
+post '/decline_trade:id' do
+  @trade = Trade.find(params[:id])
+  @book = Book.find(@trade.book_id)
+  @book.availability = true
+
+  @trade.delete
+
+  erb :'users/bookshelf'
+end
