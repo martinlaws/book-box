@@ -14,6 +14,5 @@ $(document).ready(function() {
   });
 
   $(".trade-button").click(function() {
-    $(this).hide();
   });
 });

@@ -9,4 +9,12 @@ class Book < ActiveRecord::Base
     user_id != current_user.id 
   end
 
+  def available
+    book.availability = true
+  end
+
+  def remove
+    book.availability = false
+  end
+
 end
