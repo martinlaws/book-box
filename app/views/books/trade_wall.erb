@@ -7,21 +7,28 @@
 <div class="container">
   <div class="flex-container">
 
-  <% @books.sort_by { |book| current_user.distance(book.user).to_kilometers }.each do |book| %>
-      <div class="four columns book-tile">
+    <% if @books %>
+      <% @books.sort_by { |book| current_user.distance(book.user).to_kilometers }.each do |book| %>
+        <% if book.availability == true %>
+          <div class="four columns book-tile">
 
-        <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
-        <p>by: <%= book.author %></p>
-        </br>
-        <p><%= book.genre %></p>
-        <p>Poster: <%= book.user.first_name %> </p>
-        <p>Distance from you: <%= current_user.distance(book.user).to_kilometers.round(2) %>km</p>
+            <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
+            <p>by: <%= book.author %></p>
+            </br>
+            <p><%= book.genre %></p>
+            <p>Poster: <%= book.user.first_name %> </p>
+            <p>Distance from you: <%= current_user.distance(book.user).to_kilometers.round(2) %>km</p>
 
-        <form method="post" action="/trade/new<%= book.id %>">
-          <input class="button trade-button" type="submit" value="Trade">
-        </form>
-      </div>
-  <% end %>
+            <form method="post" action="/trade/new<%= book.id %>">
+              <input class="button trade-button" type="submit" value="Trade">
+            </form>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h4>Sorry, there are no books available.</h4>
+
+    <% end %>
 
   </div>
 </div>
