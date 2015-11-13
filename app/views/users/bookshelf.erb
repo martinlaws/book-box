@@ -41,7 +41,7 @@
         <td><%= Book.find(trade.book_id).title %></td>
         <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
         <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
-        <td>Location</td>
+        <td><%= User.find(trade.posting_user).location %></td>
         <td><a href="/"><i class="material-icons md-18">thumb_up</i></a></td>
         <td><a href="/"><i class="material-icons md-18">thumb_down</i></a></td>
       </tr>
