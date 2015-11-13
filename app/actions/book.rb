@@ -8,6 +8,7 @@ post '/book/:id/remove' do
   @book.save
   redirect "/bookshelf#{current_user.id}"
 end
+
 post '/book/new' do
 
   @book = Book.new(
@@ -23,6 +24,4 @@ post '/book/new' do
     erb :index
   end
 
-
 end
-
