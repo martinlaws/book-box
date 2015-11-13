@@ -28,10 +28,13 @@ end
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-# Load the routes / actions
-require APP_ROOT.join('app', 'actions')
 
 # Action files
 Dir.glob(File.join(APP_ROOT, 'app', 'actions', '**', '*')).each do |file|
+  require file
+end
+
+#Helper files
+Dir.glob(File.join(APP_ROOT, 'app', 'helpers', '**', '*')).each do |file|
     require file
 end
