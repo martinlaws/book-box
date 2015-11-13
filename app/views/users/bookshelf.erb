@@ -3,28 +3,48 @@ Your NAME
 Your books
 Your .get_trades
     -->
-
 <div class="row">
   <h1 class="header-box">
-    <center>Hello, <%= current_user.first_name %>!</center>
+    <center style="margin-top: 0.5em;">Hello, <%= current_user.first_name %>!</center>
   </h1>
 </div>
 
 <div class="container">
   <div class="flex-container">
-
     <% current_user.books.each do |book| %>
-        <div class="four columns book-tile">
-          <h4><%= book.title %></h4>
-          <p>by: <%= book.author %></p>
-          </br>
-          <p><%= book.genre %></p>
-          <p><%= book.user.first_name %></p>
-          <p><%= User.find(book.user_id).location %></p>
+      <div class="four columns book-tile">
+        <h4><%= book.title %></h4>
+        <p>by:<%= book.author %></p>
+        </br>
+        <p><%= book.genre %></p>
+        <p><%= book.user.first_name %></p>
+        <p><%= User.find(book.user_id).location %></p>
         </br>
         <a class="button" href='/book/<%= book.id %>'>Delete</a>
-        </div>
+      </div>
     <% end %>
-
   </div>
+
+</br>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Poster</th>
+        <th>Bidder</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.posting_trades.each do |trade| %>
+      <tr>
+        <td><%= Book.find(trade.book_id).title %></td>
+        <td><%= User.find(trade.posting_user).first_name %></td>
+        <td>Male</td>
+        <td>San Francisco</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>

@@ -3,8 +3,9 @@
 }
 
 .header-box {
-  margin: 0.5em;
-  padding: 1em;
+  margin: 0.2em;
+  padding: 0.2em;
+  clear: both;
 }
 
 .book-tile {
