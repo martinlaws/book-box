@@ -6,7 +6,7 @@ post '/book/:id/remove' do
   @book = Book.find(params[:id])
   @book.remove
   @book.save
-  redirect "/bookshelf#{current_user.id}"
+  redirect "/bookshelf#{session[:id]}"
 end
 
 post '/book/new' do
@@ -15,7 +15,7 @@ post '/book/new' do
     title: params[:title],
     author: params[:author],
     genre: params[:genre],
-    user_id: current_user.id
+    user_id: session[:id]
   )
 
   if @book.save
