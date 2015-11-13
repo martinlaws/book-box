@@ -16,6 +16,8 @@ post '/trade/new:id' do
   )
 
   if @trade.save
+    @book.availability = false
+    @book.save
     redirect '/trade_wall'
   else
     redirect '/trade_wall'
@@ -37,10 +39,17 @@ end
 
 put '/decline_trade:id' do
   @trade = Trade.find(params[:id])
-  @book = Book.find(@trade.book_id)
-  @book.availability = true
 
-  @trade.delete
+  if @trade
+    @book = Book.find(@trade.book_id)
+    @book.availability = true
+    @book.save
 
-  erb :'users/bookshelf'
+    @trade.delete
+
+    erb :'users/bookshelf'
+  else
+    erb :'users/bookshelf'
+  end
+
 end
