@@ -20,7 +20,9 @@ Your .get_trades
         <p><%= book.user.first_name %></p>
         <p><%= User.find(book.user_id).location %></p>
         </br>
-        <a class="button" href='/book/<%= book.id %>/remove'>Delete</a>
+        <form method="POST" action="/book/<%= book.id %>/remove">
+          <input class="button trade-button" type="submit" value="Make Unavailable">
+        </form>
       </div>
     <% end %>
   </div>
