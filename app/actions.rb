@@ -126,6 +126,6 @@ end
 
 get '/book/:id' do
   @book = Book.find(params[:id])
-  @book.destroy
+  @book.remove
   redirect "/bookshelf#{current_user.id}"
 end

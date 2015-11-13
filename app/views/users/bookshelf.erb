@@ -4,9 +4,9 @@ Your books
 Your .get_trades
     -->
 <div class="row">
-  <h1 class="header-box">
-    <center style="margin-top: 0.5em;">Hello, <%= current_user.first_name %>!</center>
-  </h1>
+  <h2 class="header-box">
+    <center style="margin-top: 0.5em;"><%= current_user.first_name %>'s Books:</center>
+  </h2>
 </div>
 
 <div class="container">
@@ -26,6 +26,7 @@ Your .get_trades
   </div>
 
 </br>
+<h4><center>Pending Trades</center></h4>
   <table class="u-full-width">
     <thead>
       <tr>
@@ -33,15 +34,19 @@ Your .get_trades
         <th>Poster</th>
         <th>Bidder</th>
         <th>Location</th>
+        <th>Yea</th>
+        <th>Neigh</th>
       </tr>
     </thead>
     <tbody>
       <% current_user.posting_trades.each do |trade| %>
       <tr>
         <td><%= Book.find(trade.book_id).title %></td>
-        <td><%= User.find(trade.posting_user).first_name %></td>
-        <td>Male</td>
-        <td>San Francisco</td>
+        <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
+        <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
+        <td>Location</td>
+        <td><a href="/"><i class="material-icons md-18">thumb_up</i></a></td>
+        <td><a href="/"><i class="material-icons md-18">thumb_down</i></a></td>
       </tr>
       <% end %>
     </tbody>
