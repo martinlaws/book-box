@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112213444) do
+ActiveRecord::Schema.define(version: 20151112230404) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20151112213444) do
     t.string   "password_digest"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
-    t.decimal  "latitude",        precision: 5, scale: 2
-    t.decimal  "longitude",       precision: 5, scale: 2
+    t.decimal  "latitude",        precision: 7, scale: 4
+    t.decimal  "longitude",       precision: 7, scale: 4
   end
 
 end
