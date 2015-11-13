@@ -31,12 +31,11 @@
   </div>
 
 </br>
-<h4 class="docs-header"><center>Pending Trades</center></h4>
+<h4 class="docs-header"><center>Here's who wants your books:</center></h4>
   <table class="u-full-width">
     <thead>
       <tr>
         <th>Book</th>
-        <th>Poster</th>
         <th>Bidder</th>
         <th>Location</th>
         <th>Yea</th>
@@ -47,7 +46,6 @@
       <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
       <tr>
         <td><%= Book.find(trade.book_id).title %></td>
-        <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
         <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
         <td><%= User.find(trade.posting_user).location %></td>
         <form method="post" action="/accept_trade<%= trade.id %>">
