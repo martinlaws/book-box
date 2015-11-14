@@ -16,7 +16,7 @@ post '/trade/new:id' do
   )
 
   if @trade.save
-    @book.availability = false
+    @book.make_unavailable
     @book.save
     redirect '/trade_wall'
   else
@@ -29,7 +29,7 @@ put '/accept_trade:id' do
   @trade = Trade.find(params[:id])
   @book = Book.find(@trade.book_id)
 
-  @trade.status = "completed"
+  @trade.complete_trade
   @book.user_id = @trade.receiving_user
   @book.save
   @trade.save
@@ -42,7 +42,7 @@ put '/decline_trade:id' do
 
   if @trade
     @book = Book.find(@trade.book_id)
-    @book.availability = true
+    @book.make_available
     @book.save
 
     @trade.delete
