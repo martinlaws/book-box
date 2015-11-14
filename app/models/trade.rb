@@ -5,4 +5,8 @@ class Trade < ActiveRecord::Base
 
   validates :receiving_user, uniqueness: {scope: :book_id}
 
+  def complete_trade
+    self.status = "completed"
+  end
+
 end

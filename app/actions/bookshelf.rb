@@ -1,4 +1,4 @@
-get '/bookshelf:id' do
+get '/:id/bookshelf' do
   erb :'users/bookshelf'
 end
 

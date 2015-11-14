@@ -17,7 +17,7 @@ class Book < ActiveRecord::Base
     self.availability = true
   end
 
-  def remove
+  def make_unavailable
    self.availability = false
   end
 
