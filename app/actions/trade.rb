@@ -1,5 +1,5 @@
 get '/trade_wall' do
-  @books = Book.where('user_id != ?', session[:id]).includes(:user)
+  @books = Book.where('user_id != ?', session[:id]).where('availability != ?', false).includes(:user)
 
   erb :'books/trade_wall'
 end

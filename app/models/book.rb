@@ -10,7 +10,7 @@ class Book < ActiveRecord::Base
   end
 
   def available?
-    self.availability = true
+    self.availability == true
   end
 
   def make_available
