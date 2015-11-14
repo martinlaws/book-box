@@ -8,7 +8,7 @@
   <div class="flex-container">
 
     <% if !@books.empty? %>
-      <% @books.sort_by { |book| current_user.distance(book.user).to_kilometers }.each do |book| %>
+      <% @books.sort_by { |book| current_user.location.distance_to(book.user.location) }.each do |book| %>
         <% if book.available? %>
           <div class="four columns book-tile">
 
@@ -17,7 +17,7 @@
             </br>
             <p><%= book.genre %></p>
             <p>Poster: <%= book.user.first_name %> </p>
-            <p>Distance from you: <%= current_user.distance(book.user).to_kilometers.round(2) %>km</p>
+            <p>Distance from you: <%= current_user.location.distance_to(book.user.location).round(2)%> km</p>
 
             <form method="post" action="/trade/new<%= book.id %>">
               <input class="button trade-button" type="submit" value="Trade">

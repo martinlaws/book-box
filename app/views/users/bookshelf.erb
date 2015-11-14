@@ -14,7 +14,7 @@
         </br>
         <p><%= book.genre %></p>
         <p><%= book.user.first_name %></p>
-        <p><%= User.find(book.user_id).location %></p>
+        <p><%= book.user.location.address %></p>
         </br>
         <%if book.availability == true %>
         <form method="post" action="/book<%= book.id %>/remove">
@@ -49,7 +49,7 @@
         <tr>
           <td><%= Book.find(trade.book_id).title %></td>
           <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
-          <td><%= User.find(trade.posting_user).location %></td>
+          <td><%= User.find(trade.posting_user).location.address %></td>
           <form method="post" action="/accept_trade<%= trade.id %>">
             <td><button type="hidden" name="_method" value="put" class="no-border"><i class="material-icons md-18">thumb_up</i></button</td>
           </form>

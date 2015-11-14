@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_one :location
+
   has_many :books
 
   has_many :trades
@@ -22,21 +24,8 @@ class User < ActiveRecord::Base
     Trade.where(receiving_user: id)
   end
 
-  def get_location
-    location = cookies[:lat_lng].split("|")
-    location
-  end
-
-  def location
-    "#{latitude}, #{longitude}"
-  end
-
-  # def acceptable_range
-  #   5
-  # end
-
-  def distance(other_user)
-    Haversine.distance(other_user.latitude, other_user.longitude, latitude, longitude)
+  def set_location(location)
+    self.create_location(location)
   end
 
 end

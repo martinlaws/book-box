@@ -1,8 +1,8 @@
 require 'rake'
 require "sinatra/activerecord/rake"
 require ::File.expand_path('../config/environment', __FILE__)
-require './lib/users_importer'
-require './lib/books_importer'
+#require './lib/users_importer'
+#require './lib/books_importer'
 
 Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear

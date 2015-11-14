@@ -44,16 +44,15 @@ post '/signup' do
     password: params[:password],
     first_name: params[:first_name],
     last_name: params[:last_name],
-    latitude: params[:latitude],
-    longitude: params[:longitude]
   )
 
   if @user.save
+    @user.set_location(:address => params[:address])
     session[:id] = @user.id
     session[:flash] = "Welcome, #{@user.first_name}!"
     redirect 'trade_wall'
   else
-    erb :index
+    erb :'users/signup'
   end
 
 end
