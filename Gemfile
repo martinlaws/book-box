@@ -10,6 +10,8 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'bcrypt', '~> 3.1.7'
+gem 'geocoder'
+gem 'haversine'
 
 group :development, :test do
   gem 'pry'

@@ -1,20 +1,32 @@
 .header-logout {
-  margin: 1.5em;
+  margin-top: 1em;
 }
 
 .header-box {
-  margin: 0.5em;
-  padding: 1em;
+  margin: 0.2em;
+  padding: 0.2em;
+  clear: both;
 }
 
 .book-tile {
+  margin-top: 10px;
   margin-left: 10px;
   padding: 5px;
   border: 1px solid #bbb;
   border-radius: 10px;
+  clear: both;
 }
 
 .flex-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.getLocation {
+  margin-left: 10px;
+}
+
+.no-border {
+  border: none;
 }

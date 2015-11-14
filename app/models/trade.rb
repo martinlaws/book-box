@@ -1,7 +1,12 @@
 class Trade < ActiveRecord::Base
 
-  belongs_to :posting_user, class_name:'User'
+  belongs_to :user
+  belongs_to :book
 
-  belongs_to :receiving_user, class_name:'User'
+  validates :receiving_user, uniqueness: {scope: :book_id}
+
+  def complete_trade
+    self.status = "completed"
+  end
 
 end

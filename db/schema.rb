@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113004823) do
+
+ActiveRecord::Schema.define(version: 20151114061640) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -23,12 +24,20 @@ ActiveRecord::Schema.define(version: 20151113004823) do
     t.boolean  "availability", default: true
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string  "address"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.integer "user_id"
+  end
+
   create_table "trades", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "posting_user"
     t.integer  "receiving_user"
     t.integer  "book_id"
+    t.string   "status",         default: "pending"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,10 +45,8 @@ ActiveRecord::Schema.define(version: 20151113004823) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.decimal  "latitude",        precision: 7, scale: 4
-    t.decimal  "longitude",       precision: 7, scale: 4
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

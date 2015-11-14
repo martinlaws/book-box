@@ -7,20 +7,29 @@
 <div class="container">
   <div class="flex-container">
 
-  <% @books.each do |book| %>
-    <div class="four columns book-tile">
-      <h4><%= book.title %></h4>
-      <p>by: <%= book.author %></p>
-      </br>
-      <p><%= book.genre %></p>
-      <!-- <p><%= User.find(book.user_id).location %></p> -->
-      <p><%= book.user.first_name %><%= book.user.location %></p>
-      <p>LOCATION</p>
-    </div>
-  <% end %>
+    <% if !@books.empty? %>
+      <% @books.sort_by { |book| current_user.location.distance_to(book.user.location) }.each do |book| %>
+        <% if book.available? %>
+          <div class="four columns book-tile">
+
+            <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
+            <p>by: <%= book.author %></p>
+            </br>
+            <p><%= book.genre %></p>
+            <p>Poster: <%= book.user.first_name %> </p>
+            <p>Distance from you: <%= current_user.location.distance_to(book.user.location).round(2)%> km</p>
+
+            <form method="post" action="/trade/new<%= book.id %>">
+              <input class="button trade-button" type="submit" value="Trade">
+            </form>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+
+      <h4>Sorry, there are no books available. Why don't you take the lead and <a href='/book/new'>add a new book</a>?</h4>
+
+    <% end %>
 
   </div>
 </div>
-
-</br>
-<center><a class="button" href="/book/new">Post a new book</a></center>
