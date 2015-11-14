@@ -16,7 +16,7 @@
         <p><%= book.user.first_name %></p>
         <p><%= book.user.location.address %></p>
         </br>
-        <%if book.availability == true %>
+        <%if book.available? %>
         <form method="post" action="/book<%= book.id %>/remove">
           <td><button type="hidden" name="_method" value="put">Make Unavailable</button</td>
         </form>
@@ -34,6 +34,9 @@
 
   </br>
   <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
+    <% book = Book.find(trade.posting_user) %>
+    <% receiving_user = User.find(trade.receiving_user) %>
+    <% posting_user = User.find(trade.posting_user) %>
     <h4 class="docs-header"><center>Here's who wants your books:</center></h4>
     <table class="u-full-width">
       <thead>
@@ -47,9 +50,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= Book.find(trade.book_id).title %></td>
-          <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
-          <td><%= User.find(trade.posting_user).location.address %></td>
+          <td><%= book.title %></td>
+          <td><%= receiving_user.first_name %> <%= receiving_user.last_name %></td>
+          <td><%= receiving_user.location.address %></td>
           <form method="post" action="/accept_trade<%= trade.id %>">
             <td><button type="hidden" name="_method" value="put" class="no-border"><i class="material-icons md-18">thumb_up</i></button</td>
           </form>
