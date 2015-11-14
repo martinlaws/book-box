@@ -8,7 +8,8 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
-require 'pry'
+require 'pg'
+# require 'pry'
 require 'haversine'
 require 'geocoder'
 require 'geocoder/railtie'
