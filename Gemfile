@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby "2.1.3"
 
 gem 'rake'
 gem 'activesupport'
@@ -17,4 +18,5 @@ group :development, :test do
   gem 'pry'
   gem 'shotgun'
   gem 'sqlite3'
+  gem 'pg'
 end
