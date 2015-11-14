@@ -34,7 +34,7 @@
 
   </br>
   <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
-    <% book = Book.find(trade.posting_user) %>
+    <% book = Book.find(trade.book_id) %>
     <% receiving_user = User.find(trade.receiving_user) %>
     <% posting_user = User.find(trade.posting_user) %>
     <h4 class="docs-header"><center>Here's who wants your books:</center></h4>
