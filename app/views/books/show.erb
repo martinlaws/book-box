@@ -5,7 +5,7 @@
     </br>
     <p>Genre: <%= @book.genre %></p>
     <p>Poster: <%= @book.user.first_name %></p>
-    <p>You can find <%= @book.user.first_name %> at: <%= @book.user.location %></p>
+    <p>You can find <%= @book.user.first_name %> in: <%= @book.user.location.address %></p>
     </br>
   </div>
 </div>
@@ -27,10 +27,12 @@
       </thead>
       <tbody>
         <% @book.trades.each do |trade| %>
-          <td>Location</td>
+          <% posting_user = User.find(trade.posting_user) %>
+          <% receiving_user = User.find(trade.receiving_user) %>
+          <td><%= posting_user.location.address %>
           <td><%= trade.created_at.httpdate %></td>
-          <td><%= User.find(trade.posting_user).first_name %> <%= User.find(trade.posting_user).last_name %></td>
-          <td><%= User.find(trade.receiving_user).first_name %> <%= User.find(trade.receiving_user).last_name %></td>
+          <td><%= posting_user.first_name %> <%= posting_user.last_name %></td>
+          <td><%= receiving_user.first_name %> <%= receiving_user.last_name %></td>
         </tr>
         <% end %>
       </tbody>
