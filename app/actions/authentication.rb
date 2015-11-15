@@ -56,3 +56,16 @@ post '/signup' do
   end
 
 end
+
+post '/edit_profile' do
+  @user.email = params[:email]
+  @user.password = params[:password]
+  @user.set_location(:address => params[:address])
+  if @user.save
+    session[:id] = @user.id
+    session[:flash] = "Profile info changed successfully, #{@user.first_name}!"
+    redirect 'trade_wall'
+  else
+    erb :'users/edit_profile'
+  end
+end
