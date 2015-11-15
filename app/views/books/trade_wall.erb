@@ -20,7 +20,7 @@
             <p>Distance from you: <%= current_user.location.distance_to(book.user.location).round(2)%> km</p>
 
             <form method="post" action="/trade/new<%= book.id %>">
-              <input class="button trade-button" type="submit" value="Trade">
+              <input class="button trade-button" type="submit" value="Request">
             </form>
           </div>
         <% end %>

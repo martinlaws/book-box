@@ -47,10 +47,10 @@
       </thead>
       <tbody>
         <tr>
-          <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
-            <% book = Book.find(trade.book_id) %>
-            <% receiving_user = User.find(trade.receiving_user) %>
-            <% posting_user = User.find(trade.posting_user) %>
+        <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
+          <% book = Book.find(trade.book_id) %>
+          <% receiving_user = User.find(trade.receiving_user) %>
+          <% posting_user = User.find(trade.posting_user) %>
           <td><%= book.title %></td>
           <td><%= receiving_user.first_name %> <%= receiving_user.last_name %></td>
           <td><%= receiving_user.location.address %></td>
