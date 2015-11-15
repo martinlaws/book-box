@@ -15,7 +15,6 @@
         <p><%= book.genre %></p>
         <p><%= book.user.first_name %></p>
         <p><%= book.user.location.address %></p>
-        </br>
         <%if book.available? %>
         <form method="post" action="/book<%= book.id %>/remove">
           <td><button type="hidden" name="_method" value="put">Make Unavailable</button</td>
