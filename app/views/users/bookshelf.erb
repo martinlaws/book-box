@@ -11,10 +11,7 @@
         <% if book %>
         <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
         <p>by: <%= book.author %></p>
-        </br>
         <p><%= book.genre %></p>
-        <p><%= book.user.first_name %></p>
-        <p><%= book.user.location.address %></p>
         <%if book.available? %>
         <form method="post" action="/book<%= book.id %>/remove">
           <td><button type="hidden" name="_method" value="put">Make Unavailable</button</td>
