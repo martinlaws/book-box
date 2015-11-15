@@ -49,7 +49,6 @@
         <% current_user.posting_trades.where(:status => "pending").each do |trade| %>
           <% book = Book.find(trade.book_id) %>
           <% receiving_user = User.find(trade.receiving_user) %>
-          <% posting_user = User.find(trade.posting_user) %>
           <td><%= book.title %></td>
           <td><%= receiving_user.first_name %> <%= receiving_user.last_name %></td>
           <td><%= receiving_user.location.address %></td>
@@ -59,6 +58,28 @@
           <form method="post" action="/decline_trade<%= trade.id %>">
             <td><button type="hidden" name="_method" value="put" class="no-border"><i class="material-icons md-18">thumb_down</i></button</td>
           </form>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </br>
+    <h4 class="docs-header"><center>Here are all of the books you've already bid on:</center></h4>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>Poster</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <% current_user.receiving_trades.where(:status => "pending").each do |trade| %>
+          <% book = Book.find(trade.book_id) %>
+          <% posting_user = User.find(trade.posting_user) %>
+          <td><%= book.title %></td>
+          <td><%= posting_user.first_name %> <%= posting_user.last_name %></td>
+          <td><%= posting_user.location.address %></td>
         </tr>
       <% end %>
       </tbody>
