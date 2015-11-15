@@ -1,6 +1,6 @@
 <div class="container" style="clear: both;">
   <div class="six columns book-tile">
-    <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
+    <h4><%= @book.title %></h4>
     <p>Author: <%= @book.author %></p>
     <p>Genre: <%= @book.genre %></p>
     <p>Poster: <%= @book.user.first_name %></p>

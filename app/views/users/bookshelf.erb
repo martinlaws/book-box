@@ -9,7 +9,7 @@
     <% current_user.books.each do |book| %>
       <div class="four columns book-tile">
         <% if book %>
-        <h4><%= book.title %></h4>
+        <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
         <p>by: <%= book.author %></p>
         </br>
         <p><%= book.genre %></p>
