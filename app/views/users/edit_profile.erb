@@ -4,18 +4,18 @@
       <center>Edit Profile</center>
     </h1>
   </div>
-  <form action="/#{current_user.id}/edit_profile" method="PUT">
+  <form action="/<%= current_user.id %>/edit_profile" method="POST">
     <div class="row">
       <div class="six columns">
         <input class="u-full-width" name="first_name" placeholder="First Name" type="text" value="<%= current_user.first_name %>">
       </div>
       <div class="six columns">
-        <input class="u-full-width" name="last_name" placeholder="Last Name" type="text">
+        <input class="u-full-width" name="last_name" placeholder="Last Name" type="text" value="<%= current_user.last_name %>">
       </div>
     </div>
     <div class="row">
       <div class="six columns">
-        <input class="u-full-width" name="email" placeholder="email@email.com" type="email">
+        <input class="u-full-width" name="email" placeholder="email@email.com" type="email" value="<%= current_user.email %>">
       </div>
       <div class="six columns">
         <input class="u-full-width" name="password" placeholder="password" type="password">
@@ -25,6 +25,6 @@
       <div class="five columns">
         <input class="u-full-width" name="address" placeholder="Location" type="text">
       </div>
-    <center><input class="button-primary" type="submit" value="submit"></center>
+    <button type="hidden" name="_method" value="put">Update</button>
   </form>
 </div>

@@ -57,9 +57,12 @@ post '/signup' do
 
 end
 
-post '/edit_profile' do
+put '/:id/edit_profile' do
+  @user = User.find(params[:id])
   @user.email = params[:email]
   @user.password = params[:password]
+  @user.first_name = params[:first_name]
+  @user.last_name = params[:last_name]
   @user.set_location(:address => params[:address])
   if @user.save
     session[:id] = @user.id
