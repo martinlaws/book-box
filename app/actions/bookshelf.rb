@@ -7,7 +7,7 @@ put '/book:id/repost' do
   @book.make_available
   @book.save
 
-  erb :'/users/bookshelf'
+  redirect "/#{current_user.first_name}/bookshelf"
 end
 
 put '/book:id/remove' do
@@ -15,6 +15,6 @@ put '/book:id/remove' do
   @book.make_unavailable
   @book.save
 
-  erb :'/users/bookshelf'
+  redirect "/#{current_user.first_name}/bookshelf"
 end
 
