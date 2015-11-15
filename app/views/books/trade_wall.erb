@@ -4,32 +4,30 @@
   </h1>
 </div>
 
-<div class="container">
-  <div class="flex-container">
+<div class="flex-container">
 
-    <% if !@books.empty? %>
-      <% @books.sort_by { |book| current_user.location.distance_to(book.user.location) }.each do |book| %>
-        <% if book.available? %>
-          <div class="four columns book-tile">
+  <% if !@books.empty? %>
+    <% @books.sort_by { |book| current_user.location.distance_to(book.user.location) }.each do |book| %>
+      <% if book.available? %>
+        <div class="four columns book-tile">
 
-            <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
-            <p>by: <%= book.author %></p>
-            </br>
-            <p><%= book.genre %></p>
-            <p>Poster: <%= book.user.first_name %> </p>
-            <p>Distance from you: <%= current_user.location.distance_to(book.user.location).round(2)%> km</p>
+          <h4><a href="/book/<%= book.title %>"><%= book.title %></a></h4>
+          <p>by: <%= book.author %></p>
+          </br>
+          <p><%= book.genre %></p>
+          <p>Poster: <%= book.user.first_name %> </p>
+          <p>Distance from you: <%= current_user.location.distance_to(book.user.location).round(2)%> km</p>
 
-            <form method="post" action="/trade/new<%= book.id %>">
-              <input class="button trade-button" type="submit" value="Request">
-            </form>
-          </div>
-        <% end %>
+          <form method="post" action="/trade/new<%= book.id %>">
+            <input class="button trade-button" type="submit" value="Request">
+          </form>
+        </div>
       <% end %>
-    <% else %>
-
-      <h4>Sorry, there are no books available. Why don't you take the lead and <a href='/book/new'>add a new book</a>?</h4>
-
     <% end %>
+  <% else %>
 
-  </div>
+    <h4>Sorry, there are no books available. Why don't you take the lead and <a href='/book/new'>add a new book</a>?</h4>
+
+  <% end %>
+
 </div>
