@@ -185,10 +185,10 @@ input[type="button"] {
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
-  border: 1px solid #bbb;
+  border: 1px solid #e7e7e7;
   cursor: pointer;
   box-sizing: border-box;
-  background-color: #f2f2f2;}
+  background-color: #e7e7e7;}
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -200,7 +200,7 @@ input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
   color: #1b1a1a;
-  border-color: #888;
+  border-color: #d0cdbd;
   outline: 0;
   background-color: #d0cdbd}
 .button.button-primary,
