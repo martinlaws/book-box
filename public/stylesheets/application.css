@@ -46,5 +46,6 @@
 }
 
 .no-border {
+  padding-top: 8px;
   border: none;
 }
