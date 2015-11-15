@@ -159,7 +159,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #1EAEDB;}
 a:hover {
   color: #0FA0CE; }
 
@@ -187,7 +187,8 @@ input[type="button"] {
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #f2f2f2;}
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -198,17 +199,18 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  color: #333;
+  color: #1b1a1a;
   border-color: #888;
-  outline: 0; }
+  outline: 0;
+  background-color: #d0cdbd}
 .button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
-  background-color: #c690fc;
-  border-color: #c690fc; }
+  background-color: #cd9ffb;
+  border-color: #cd9ffb; }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -220,8 +222,8 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
-  background-color: #a556f4;
-  border-color: #a556f4; }
+  background-color: #b367ff;
+  border-color: #b367ff; }
 
 
 /* Forms
