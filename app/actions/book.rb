@@ -19,7 +19,7 @@ post '/book/new' do
   )
 
   if @book.save
-    redirect '/trade_wall'
+    redirect "/#{current_user.first_name}/bookshelf"
   else
     erb :'books/new'
   end
