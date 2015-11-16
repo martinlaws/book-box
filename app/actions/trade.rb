@@ -12,7 +12,7 @@ post '/trade/new:id' do
   @trade = Trade.new(
     book_id: @book.id,
     posting_user: @book.user_id,
-    receiving_user: current_user.id,
+    receiving_user: session[:id],
   )
 
   if @trade.save
