@@ -1,7 +1,7 @@
 BookBox
 =============
 
-Brought to you by Ann, Jonathan and Martin.
+BookBox is now live at http://book-box-app.herokuapp.com - sign up and swap away!
 
 ## What is this?
 BookBox is the digital incarnation of the classic hostel/café/street corner Book Swap.
