@@ -8,7 +8,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
-require 'pry'
+require 'pry' if development?
 require 'geocoder'
 require 'geocoder/railtie'
 Geocoder::Railtie.insert
